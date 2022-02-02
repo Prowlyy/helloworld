@@ -1,0 +1,30 @@
+/*
+Author: PRRRRRRRRRRRRRRRRRRRRRRRRR
+Purpose: There is no purpose.
+*/
+
+
+#include <stdio.h>
+
+
+// int main()
+// {
+//     printf("Hello world, this is the first time I'm seeing anything, kekwin");
+//     return 0;   
+// }
+
+
+int main() {
+
+    char str[100];
+    int i;
+
+    printf("Enter a value");
+    scanf("%s %d", str, &i);
+    
+
+    printf("\nYou entered: %s %d", str,i);
+
+    return 0;
+
+}

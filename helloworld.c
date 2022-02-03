@@ -49,3 +49,29 @@ Purpose: There is no purpose.
 //     return 0;
     
 // }
+// ---------------------------------------------------------------------------------------------------
+
+
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// int main()
+// {
+    
+//     enum Company { GOOGLE, FACEBOOK, XEROX, YAHOO, EBAY, MICROSOFT };
+  
+//     enum Company Xerox = XEROX;
+//     enum Company google = GOOGLE;
+//     enum Company ebay = EBAY;
+    
+//     printf("The value of Xerox is: %d\n", Xerox);
+//     printf("The value of Google is: %d\n", google);
+//     printf("The value of Ebay is: %d\n", ebay);
+
+   
+   
+   
+//     return 0;
+// }
+
+

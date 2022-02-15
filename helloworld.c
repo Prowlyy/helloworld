@@ -1,85 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-#define PAYRATE 12.00
-#define TAXRATE_300 .15
-#define TAXRATE_150 .20
-#define TAXRATE_REST .25
-#define OVERTIME 40
-
-
+#include <time.h>
 
 int main()
+
 {
- //declare variables
- int hours = 0;
- double grossPay = 0.0;
- double taxes = 0.0;
- double netPay = 0.0;
+    int randomNumber = 0;
+    int guess = 0;
+    int numberOfGuesses;
+    time_t t;
 
- //Get hours from user
- printf("Please enter the number of hours you worked this week:\n");
- scanf("%d", &hours);
+    // Initialization of random number generator
+    srand((unsigned) time(&t));
 
- // Calculate hours worked in week with payrate
-
- if (hours <= 40)
-     grossPay = hours * PAYRATE;
- else
-
- {
-     grossPay = 40 * PAYRATE;
-     double overTimePay = (hours - 40) * (PAYRATE * 1.5);
-     grossPay = grossPay + overTimePay;
- }
-
-//cALCULATE TAXES
-
- if (grossPay <= 300)
- {
-     taxes = grossPay * TAXRATE_300;
- }
- else if (grossPay > 300 && grossPay < 450)
- {
-     taxes = 300 * TAXRATE_300;
-     taxes += (grossPay - 300) * TAXRATE_150;
- }
- else if (grossPay > 450)
- {
-     taxes = 300 * TAXRATE_300;
-     taxes += 150 * TAXRATE_150;
-     taxes += (grossPay - 450) * TAXRATE_REST;
- }
+    // get the random number
+    randomNumber = rand() % 21;
+    printf("\n> Hello!\n> This is a guessing game.\n> I have chosen a number between 0 and 20 which you must guess!");
 
 
-//Calculate net pay
+    for(numberOfGuesses = 5; numberOfGuesses > 0; --numberOfGuesses)
+    {
+        printf("You have %d guesses more!\n", numberOfGuesses);
+        printf("Enter your guess:\n");
+        scanf(" %d", &guess);
 
- netPay = grossPay - taxes;
+        if(guess == randomNumber)
+        {
+            printf("\nCongratulations. You guessed it!\n");
+            break;
+        }
+        else if(guess < 0 || guess > 20) //checking for invalid guess
+        {
+            printf("\nThe number is between 0 and 20\n");
+            ++numberOfGuesses;
+        }
+        else if(guess < randomNumber)
+            printf("Sorry, %d is wrong. My number is greater than that.\n", guess);
+        else if(guess > randomNumber)
+            printf("Sorry, %d is wrong. My number is less than that.\n", guess);
+    }
 
- //Display output
+    printf("You've run out of guesses!\n");
+    printf("The number was %d!\n", randomNumber);
 
- printf("Your gross pay this week is: %.2f\n", grossPay);
- printf("Your taxes this week is: %.2f\n", taxes);
- printf("Your net pay this week is: %.2f\n", netPay);
-
-
-
-
-
-
-
-// if(hoursWorked > 40)
-//    basicPayRate = 18.00;
-//    printf("This is how much you receive in over time pay %d:\n", basicPayRate * hoursWorked > 40);
-
-
-
-
-
-
-
-
-
- return 0;
-
+return 0;
 }
+
